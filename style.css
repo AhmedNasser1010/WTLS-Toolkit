@@ -1,0 +1,66 @@
+ /* Start variable */
+:root {
+  --color1: #23272a;
+  --color2: #2c2f33;
+  --color3: #99aab5;
+  --color4: #ffffff;
+  --color5: #7289da;
+}
+/* End variable */
+/* Start Global Rules */
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+html {
+  -webkit-scroll-behavior: smooth;
+  -moz-scroll-behavior: smooth;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-scroll-behavior: smooth;
+  -moz-scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  background-color: var(--color1);
+  font-family: 'Cairo', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+hr {
+  height: 0;
+  width: 100%;
+  border: 1px solid white;
+  margin: 8px 0;
+}
+
+body {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+}
+
+/* Start Header */
+header {
+  background-color: var(--color2);
+  padding: 15px;
+  margin: 5px;
+  border-radius: 5px;
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+header > h1 {
+  color: white;
+  margin: 0px;
+  padding: 0px;
+  font-weight: 400;
+}
+/* End Header */
