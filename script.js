@@ -1,165 +1,328 @@
-// =======================
-// Guns Functions
-function m4(ammu) {
-	function info() {
-		let gunName = "M4";
-		let Price = 4536;
-		let oneBuy = 150;
-		let Per = Price / oneBuy;
-		return `GUN - ${gunName}\n Price = $${Price}\n One Buy = A${oneBuy}\n Per = $${Per}\n ${calc()}`;
-			function calc() {
-				if (ammu === undefined) {
-					return `No Calc`
-				} else {
-					return `Calc: $${Per} X A${ammu} = $${Per * ammu}`;
-				}
-			}
-	}
-	console.log(`${info()}`);
-}
+let gunsContainer = document.querySelector(".categ.guns > div");
+let drugsContainer = document.querySelector(".categ.drugs > div");
+let othersContainer = document.querySelector(".categ.other > div");
 
-function akm(ammu) {
-	function info() {
-		let gunName = "AKM";
-		let Price = 3528;
-		let oneBuy = 150;
-		let Per = Price / oneBuy;
-		return `GUN - ${gunName}\n Price = $${Price}\n One Buy = A${oneBuy}\n Per = $${Per}\n ${calc()}`;
-			function calc() {
-				if (ammu === undefined) {
-					return `No Calc`
-				} else {
-					return `Calc: $${Per} X A${ammu} = $${Per * ammu}`;
-				}
-			}
+class Weapon {
+	static thisItems = [];
+	// Properties
+	constructor(id, category, itemName, price, count) {
+		this.id = id;
+		this.category = category;
+		this.itemName = itemName;
+		this.price = price;
+		this.count = count;
+		this.per = function () {
+			return +(price / count).toFixed(1);
+		}
+		Weapon.thisItems.push(this);
 	}
-	console.log(`${info()}`);
-}
-
-function tuc(ammu) {
-	function info() {
-		let gunName = "Tuc9";
-		let Price = 302;
-		let oneBuy = 60;
-		let Per = Price / oneBuy;
-		return `GUN - ${gunName}\n Price = $${Price}\n One Buy = A${oneBuy}\n Per = $${Per}\n ${calc()}`;
-			function calc() {
-				if (ammu === undefined) {
-					return `No Calc`
-				} else {
-					return `Calc: $${Per} X A${ammu} = $${Per * ammu}`;
-				}
-			}
+	// methods
+	calc(ammunitionNum) {
+		// return +(this.price / this.count * ammunitionNum).toFixed(1);
+		let calcResult = +(this.price / this.count * ammunitionNum).toFixed(0);
+		let toString = calcResult.toString();
+		let toArray = toString.split("");
+		if (toArray.length === 1) {
+			// 1 one one failed
+			return `$${toArray.join("")}`;
+		} else if (toArray.length === 2) {
+			// 10 ten two failed
+			return `$${toArray.join("")}`;
+		} else if (toArray.length === 3) {
+			// 100 one hundred three failed
+			return `$${toArray.join("")}`;
+		} else if (toArray.length === 4) {
+			// 1000 one thousand four failed
+			toArray.splice(1, 0, ",");
+			return `$${toArray.join("")}K`;
+		} else if (toArray.length === 5) {
+			// 10000 ten thousand five failed
+			toArray.splice(2, 0, ",");
+			return `$${toArray.join("")}K`;
+		} else if (toArray.length === 6) {
+			// 100000 one hundred thousand six failed
+			toArray.splice(3, 0, ",");
+			return `$${toArray.join("")}K`;
+		} else if (toArray.length === 7) {
+			// 1000000 one million seven failed
+			toArray.splice(1, 0, ",");
+			toArray.splice(5, 0, ",");
+			return `$${toArray.join("")}M`;
+		} else if (toArray.length === 8) {
+			// 10000000 ten million eight failed
+			toArray.splice(2, 0, ",");
+			toArray.splice(6, 0, ",");
+			return `$${toArray.join("")}M`;
+		} else if (toArray.length === 9) {
+			// 100000000 one hundred million nine failed
+			toArray.splice(3, 0, ",");
+			toArray.splice(7, 0, ",");
+			return `$${toArray.join("")}M`;
+		} else if (toArray.length === 10) {
+			// 1000000000 one billion ten failed
+			toArray.splice(1, 0, ",");
+			toArray.splice(5, 0, ",");
+			toArray.splice(9, 0, ",");
+			return `$${toArray.join("")}B`;
+		}
+		return toArray;
 	}
-	console.log(`${info()}`);
-}
-
-function microSmg(ammu) {
-	function info() {
-		let gunName = "Micro SMG";
-		let Price = 503;
-		let oneBuy = 60;
-		let Per = Price / oneBuy;
-		return `GUN - ${gunName}\n Price = $${Price}\n One Buy = A${oneBuy}\n Per = $${Per}\n ${calc()}`;
-			function calc() {
-				if (ammu === undefined) {
-					return `No Calc`
-				} else {
-					return `Calc: $${Per} X A${ammu} = $${Per * ammu}`;
-				}
-			}
-	}
-	console.log(`${info()}`);
-}
-
-function smg(ammu) {
-	function info() {
-		let gunName = "SMG";
-		let Price = 2016;
-		let oneBuy = 90;
-		let Per = Price / oneBuy;
-		return `GUN - ${gunName}\n Price = $${Price}\n One Buy = A${oneBuy}\n Per = $${Per}\n ${calc()}`;
-			function calc() {
-				if (ammu === undefined) {
-					return `No Calc`
-				} else {
-					return `Calc: $${Per} X A${ammu} = $${Per * ammu}`;
-				}
-			}
-	}
-	console.log(`${info()}`);
-}
-
-function shotgun(ammu) {
-	function info() {
-		let gunName = "Shotgun";
-		let Price = 605;
-		let oneBuy = 15;
-		let Per = Price / oneBuy;
-		return `GUN - ${gunName}\n Price = $${Price}\n One Buy = A${oneBuy}\n Per = $${Per}\n ${calc()}`;
-			function calc() {
-				if (ammu === undefined) {
-					return `No Calc`
-				} else {
-					return `Calc: $${Per} X A${ammu} = $${Per * ammu}`;
-				}
-			}
-	}
-	console.log(`${info()}`);
-}
-
-function combatShotgun(ammu) {
-	function info() {
-		let gunName = "Combat Shoutgun";
-		let Price = 1008;
-		let oneBuy = 10;
-		let Per = Price / oneBuy;
-		return `GUN - ${gunName}\n Price = $${Price}\n One Buy = A${oneBuy}\n Per = $${Per}\n ${calc()}`;
-			function calc() {
-				if (ammu === undefined) {
-					return `No Calc`
-				} else {
-					return `Calc: $${Per} X A${ammu} = $${Per * ammu}`;
-				}
-			}
-	}
-	console.log(`${info()}`);
-}
-
-function swanoffShotgun(ammu) {
-	function info() {
-		let gunName = "Swanoff Shotgun";
-		let Price = 806;
-		let oneBuy = 12;
-		let Per = Price / oneBuy;
-		return `GUN - ${gunName}\n Price = $${Price}\n One Buy = A${oneBuy}\n Per = $${Per}\n ${calc()}`;
-			function calc() {
-				if (ammu === undefined) {
-					return `No Calc`
-				} else {
-					return `Calc: $${Per} X A${ammu} = $${Per * ammu}`;
-				}
-			}
-	}
-	console.log(`${info()}`);
-}
-
-function customGun(gunName, Price, oneBuyAmmu, ammuToCalc) {
-	function info() {
-		let Per = Price / oneBuyAmmu;
-		return `GUN - ${gunName}\n Price = $${Price}\n One Buy = A${oneBuyAmmu}\n Per = $${Per}\n ${calc()}`;
-		function calc() {
-			if (ammuToCalc === undefined) {
-				return `No Calc`
-			} else {
-				return `Calc: $${Per} X A${ammuToCalc} = $${Per * ammuToCalc}`;
-			}
+	updatePrice(newPrice) {
+		if (newPrice === 0) {
+		} else {
+			this.price = newPrice;
 		}
 	}
-	console.log(`${info()}`);
+	appendContentInPage() {
+		let span = document.createElement("span");
+		span.classList.add("item");
+		span.textContent = this.itemName;
+		span.setAttribute("itemid", this.id);
+		if (this.category == "gun") {
+			gunsContainer.appendChild(span);
+		} else if (this.category == "drug") {
+			drugsContainer.appendChild(span);
+		} else if (this.category == "other") {
+			othersContainer.appendChild(span);
+		}
+	}
 }
-// =======================
 
-function cmds() {
-	console.log(`Gun Cmds\n m4()\n akm()\n tuc()\n smg()\n smg()\n shotgun()\n combatShotgun()\n swanoffShotgun()\n customGun()\nOther Cmds\n clear()`);
+class Drug extends Weapon {
+	constructor(id, category, itemName, price, count) {
+		super(id, category, itemName, price, count);
+	}
 }
+
+class Other extends Weapon {
+	constructor(id, category, itemName, price, count) {
+		super(id, category, itemName, price, count);
+	}
+}
+
+// class Vehicle {
+// 	constructor(
+// 		vehicleName,
+// 		vehiclePrice,
+// 		nitroXOne,
+// 		nitroXTwo,
+// 		nitroXThree,
+// 		wheelsAccess,
+// 		wheelsAhab,
+// 		wheelsAtomic,
+// 		wheelsClassic,
+// 		wheelsCutter,
+// 		wheelsDollar,
+// 		wheelsGrove,
+// 		wheelsImport,
+// 		wheelsMega,
+// 		wheelsOffroad,
+// 		wheelsRimshine,
+// 		wheelsShadow,
+// 		wheelsSwitch,
+// 		wheelsTrance,
+// 		wheelsTwist,
+// 		wheelsVirtual,
+// 		wheelsWires,
+// 		exhaustXFlow,
+// 		exhaustUpswept,
+// 		exhaustTwin,
+// 		exhaustSmall,
+// 		exhaustSlaminExhaust,
+// 		exhaustSlamin,
+// 		exhaustMedium,
+// 		exhaustLarge,
+// 		exhaustChromeExhaust,
+// 		exhaustChrome,
+// 		exhaustAlien,
+// 		spoilerAlien,
+// 		spoilerAlpha,
+// 		spoilerChamp,
+// 		spoilerDrag,
+// 		spoilerFury,
+// 		spoilerPro,
+// 		spoilerRace,
+// 		spoilerWin,
+// 		spoilerWorx,
+// 		spoilerXFlow,
+// 		bullbarChromeGrill,
+// 		bullbarsBullbarChromeBars,
+// 		bullbarsBullbarChromeLights,
+// 		frontBullbarsChrome,
+// 		frontBullbarsSlamin,
+// 		frontBullbarsAlien,
+// 		frontBullbarsXFlow,
+// 		hoodLeftOvalHoods,
+// 		hoodLeftSquareHoods,
+// 		hoodRightOvalHoods,
+// 		hoodRightSquareHoods,
+// 		hydraulics,
+// 		lampsRoundFog,
+// 		lampsSquareFog,
+// 		rearBullbarsChrome,
+// 		rearBullbarsSlamin,
+// 		rearBullbarsAlien,
+// 		rearBullbarsXFlow,
+// 		roofAlien,
+// 		roofAlienRoofVent,
+// 		roofCovertible,
+// 		roofHardtop,
+// 		roofRoofScoop,
+// 		roofSofttop,
+// 		roofVinylHardtop,
+// 		roofXFlow,
+// 		roofXFlowRoofVent,
+// 		sideskirtChromeArches,
+// 		sideskirtChromeFlames,
+// 		sideskirtChromeStrip,
+// 		sideskirtChromeTrim,
+// 		sideskirtWheelcovers,
+// 		sideskirtAlien,
+// 		sideskirtChrome,
+// 		sideskirtSideskirt,
+// 		sideskirtXFlow,
+// 		) {
+// 		this.vehicleName = vehicleName;
+// 		this.vehiclePrice = vehiclePrice;
+// 		this.nitroXOne = nitroXOne;
+// 		this.nitroXTwo = nitroXTwo;
+// 		this.nitroXThree = nitroXThree;
+// 		this.wheelsAccess = wheelsAccess;
+// 		this.wheelsAhab = wheelsAhab;
+// 		this.wheelsAtomic = wheelsAtomic;
+// 		this.wheelsClassic = wheelsClassic;
+// 		this.wheelsCutter = wheelsCutter;
+// 		this.wheelsDollar = wheelsDollar;
+// 		this.wheelsGrove = wheelsGrove;
+// 		this.wheelsImport = wheelsImport;
+// 		this.wheelsMega = wheelsMega;
+// 		this.wheelsOffroad = wheelsOffroad;
+// 		this.wheelsRimshine = wheelsRimshine;
+// 		this.wheelsShadow = wheelsShadow;
+// 		this.wheelsSwitch = wheelsSwitch;
+// 		this.wheelsTrance = wheelsTrance;
+// 		this.wheelsTwist = wheelsTwist;
+// 		this.wheelsVirtual = wheelsVirtual;
+// 		this.wheelsWires = wheelsWires;
+// 		this.exhaustXFlow = exhaustXFlow;
+// 		this.exhaustUpswept = exhaustUpswept;
+// 		this.exhaustTwin = exhaustTwin;
+// 		this.exhaustSmall = exhaustSmall;
+// 		this.exhaustSlaminExhaust = exhaustSlaminExhaust;
+// 		this.exhaustSlamin = exhaustSlamin;
+// 		this.exhaustMedium = exhaustMedium;
+// 		this.exhaustLarge = exhaustLarge;
+// 		this.exhaustChromeExhaust = exhaustChromeExhaust;
+// 		this.exhaustChrome = exhaustChrome;
+// 		this.exhaustAlien = exhaustAlien;
+// 		this.spoilerAlien = spoilerAlien;
+// 		this.spoilerAlpha = spoilerAlpha;
+// 		this.spoilerChamp = spoilerChamp;
+// 		this.spoilerDrag = spoilerDrag;
+// 		this.spoilerFury = spoilerFury;
+// 		this.spoilerPro = spoilerPro;
+// 		this.spoilerRace = spoilerRace;
+// 		this.spoilerWin = spoilerWin;
+// 		this.spoilerWorx = spoilerWorx;
+// 		this.spoilerXFlow = spoilerXFlow;
+// 		this.bullbarChromeGrill = bullbarChromeGrill;
+// 		this.bullbarsBullbarChromeBars = bullbarsBullbarChromeBars;
+// 		this.bullbarsBullbarChromeLights = bullbarsBullbarChromeLights;
+// 		this.frontBullbarsChrome = frontBullbarsChrome;
+// 		this.frontBullbarsSlamin = frontBullbarsSlamin;
+// 		this.frontBullbarsAlien = frontBullbarsAlien;
+// 		this.frontBullbarsXFlow = frontBullbarsXFlow;
+// 		this.hoodLeftOvalHoods = hoodLeftOvalHoods;
+// 		this.hoodLeftSquareHoods = hoodLeftSquareHoods;
+// 		this.hoodRightOvalHoods = hoodRightOvalHoods;
+// 		this.hoodRightSquareHoods = hoodRightSquareHoods;
+// 		this.hydraulics = hydraulics;
+// 		this.lampsRoundFog = lampsRoundFog;
+// 		this.lampsSquareFog = lampsSquareFog;
+// 		this.rearBullbarsChrome = rearBullbarsChrome;
+// 		this.rearBullbarsSlamin = rearBullbarsSlamin;
+// 		this.rearBullbarsAlien = rearBullbarsAlien;
+// 		this.rearBullbarsXFlow = rearBullbarsXFlow;
+// 		this.roofAlien = roofAlien;
+// 		this.roofAlienRoofVent = roofAlienRoofVent;
+// 		this.roofCovertible = roofCovertible;
+// 		this.roofHardtop = roofHardtop;
+// 		this.roofRoofScoop = roofRoofScoop;
+// 		this.roofSofttop = roofSofttop;
+// 		this.roofVinylHardtop = roofVinylHardtop;
+// 		this.roofXFlow = roofXFlow;
+// 		this.roofXFlowRoofVent = roofXFlowRoofVent;
+// 		this.sideskirtChromeArches = sideskirtChromeArches;
+// 		this.sideskirtChromeFlames = sideskirtChromeFlames;
+// 		this.sideskirtChromeStrip = sideskirtChromeStrip;
+// 		this.sideskirtChromeTrim = sideskirtChromeTrim;
+// 		this.sideskirtWheelcovers = sideskirtWheelcovers;
+// 		this.sideskirtAlien = sideskirtAlien;
+// 		this.sideskirtChrome = sideskirtChrome;
+// 		this.sideskirtSideskirt = sideskirtSideskirt;
+// 		this.sideskirtXFlow = sideskirtXFlow;
+// 	// 78 item
+// }
+
+// Weapons
+// Guns
+let m4 = new Weapon(0, "gun", "M4", 4536, 150);
+let akm = new Weapon(1, "gun", "AKM", 3528, 150);
+let tuc = new Weapon(2, "gun", "Tuc9", 302, 60);
+let microSmg = new Weapon(3, "gun", "Micro SMG", 503, 60);
+let smg = new Weapon(4, "gun", "SMG", 2016, 90);
+let shotgun = new Weapon(5, "gun", "Shotgun", 605, 15);
+let combatShotgun = new Weapon(6, "gun", "Combat Shotgun", 1008, 10);
+let swanoffshotgun = new Weapon(7, "gun", "Swanoffshotgun", 806, 12);
+let rpg = new Weapon(8, "gun", "RPG", 168000, 10);
+let mg = new Weapon(9, "gun", "Minigun", 600000, 20);
+let flameThrower = new Weapon(10, "gun", "Flamethrower", 26250, 20);
+let molotov = new Weapon(11, "gun", "Molotov", 10500, 10);
+let nineMm = new Weapon(12, "gun", "9mm", 230, 30);
+let silencedNineMm = new Weapon(13, "gun", "Silenced 9mm", 691, 30);
+let desertEagle = new Weapon(14, "gun", "Desert Eagle", 1382, 15);
+// Thrown
+let grenades = new Weapon(15, "gun", "Grenades", 4456, 5);
+let remoteExplosives = new Weapon(16, "gun", "Remote Explosives", 2304, 1);
+let proximityMines = new Weapon(17, "gun", "Proximity Mines", 17280, 1);
+let tearGasGrenades = new Weapon(18, "gun", "Tear Gas Grenades", 3456, 1);
+let flashBangs = new Weapon(19, "gun", "Flash Bangs", 1728, 1);
+let explosives = new Weapon(20, "gun", "Explosives", 5760, 1);
+let boobyTraps = new Weapon(21, "gun", "Booby Traps", 9216, 1);
+// ^Weapon^
+
+// Drugs
+let weed = new Drug(22, "drug", "Weed", 5000, 10);
+let cocaine = new Drug(23, "drug", "Cocaine", 4000, 10);
+let meth = new Drug(24, "drug", "Meth", 10000, 10);
+// ^Drugs^
+
+// Other
+let ammoBoxes = new Other(25, "other", "Ammo Boxes", 10000, 10);
+let counterfeitChips = new Other(26, "other", "Counterfeit Chips", 10000, 5000);
+// ^Other
+
+// load elements
+window.onload = function() {
+	for (let i = 0; i < Weapon.thisItems.length; i++) {
+		Weapon.thisItems[i].appendContentInPage();
+	}
+
+	let items = document.querySelectorAll(".item");
+	let inputFailed = document.querySelector("#inputFailed");
+	items.forEach(item => {
+		item.addEventListener("click", e => {
+			for (let i = 0; i < items.length; i++) {
+				items[i].classList.remove("selected");
+			}
+			e.target.classList.add("selected");
+
+			let selectedItem = document.querySelector(".item.selected").getAttribute("itemid");
+			let resultFailed = document.querySelector(".resultFailed");
+			inputFailed.addEventListener("input", e => {
+				resultFailed.innerHTML = Weapon.thisItems[selectedItem].calc(e.target.value);
+			});
+			resultFailed.innerHTML = Weapon.thisItems[selectedItem].calc(inputFailed.value);
+		});
+	});
+};
