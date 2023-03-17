@@ -353,7 +353,7 @@ items.forEach(item => {
 			resultField.innerHTML = Weapon.thisItems[selectedItem].calc(e.target.value);
 		});
 		resultField.removeAttribute("before-content");
-		resultField.setAttribute("before-content", `per ${numSymbol(Weapon.thisItems[selectedItem].per().toFixed(0), "$", "", "", "", "K", "K", "K", "M", "M", "M", "B" )}`);
+		resultField.setAttribute("before-content", `Per ${numSymbol(Weapon.thisItems[selectedItem].per().toFixed(0), "$", "", "", "", "K", "K", "K", "M", "M", "M", "B" )}`);
 		resultField.innerHTML = Weapon.thisItems[selectedItem].calc(inputField.value);
 	});
 });
@@ -399,3 +399,6 @@ inputField.addEventListener("input", e => {
 	resultField.innerHTML = Weapon.thisItems[selectedItem].calc(e.target.value);
 });
 resultField.innerHTML = Weapon.thisItems[selectedItem].calc(inputField.value);
+
+resultField.removeAttribute("before-content");
+resultField.setAttribute("before-content", `Per ${numSymbol(Weapon.thisItems[selectedItem].per().toFixed(0), "$", "", "", "", "K", "K", "K", "M", "M", "M", "B" )}`);
