@@ -1,4 +1,4 @@
-/* Start variable */
+/* Variable */
 :root {
   /* Colors */
   --c1: #23272a;
@@ -22,8 +22,8 @@
   --fa: "Font Awesome 6 Free";
   --f-cairo: 'Cairo', sans-serif;
 }
-/* End variable */
-/* Start Global Rules */
+/* ^Variable^ */
+/* Global rules */
 * {
   padding: 0px;
   margin: 0px;
@@ -32,10 +32,12 @@
 ul,
 li,
 input,
-a {
+a,
+button {
   all: unset;
 }
-
+/* ^Global rules^ */
+/* Other  */
 html {
   -webkit-scroll-behavior: smooth;
   -moz-scroll-behavior: smooth;
@@ -52,7 +54,8 @@ html {
 body {
   background-color: var(--c5);
 }
-
+/* ^Other^ */
+/* Container and box */
 .container {
   max-width: 100%;
   display: flex;
@@ -76,13 +79,15 @@ body {
     max-width: 100%;
   }
 }
-
+/* ^Container and box^ */
+/* Title */
 .container .box.title {
   border-top: 8px solid var(--c-green);
   padding-top: calc(20px - 8px);
   font-size: 15px;
 }
-
+/* ^Title^ */
+/* Items */
 .container .box.items {
   border-left: 8px solid var(--c-blue);
   padding-left: calc(20px - 8px);
@@ -133,36 +138,121 @@ body {
 .container .box.items .categ div .item.selected:hover {
   background-color: var(--c-dark-red);
 }
-
-.container .box.inputFailed {
+/* ^Items^ */
+/* Input field*/
+.container .box.inputField {
   border-left: 8px solid var(--c-dark-gray);
   padding-left: calc(20px - 8px);
   position: relative;
   color: var(--c-dark-gray);
+  transition: 1s;
 }
 
-.container .box.inputFailed label {
+.container .box.inputField.itemsToPrice {
+  border-color: var(--c-dark-gray);
+}
+
+.container .box.inputField.priceToItems {
+  border-color: var(--c-dark-green);
+}
+
+.container .box.inputField.priceToItems input {
+  color: var(--c-dark-green);
+}
+
+.container .box.inputField label {
   position: absolute;
   top: 4px;
   left: 4px;
   font-size: 13px;
-  width: 100%;
 }
 
-.container .box.inputFailed input {
+.container .box.inputField input {
   width: 100%;
   font-size: 25px;
   margin-top: 10px;
 }
 
+.container .box.inputField label .changeBtn {
+  position: relative;
+  width: 15px;
+  height: 16px;
+  background-color: var(--c-blue);
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 15px;
+  transform: translateY(-3px);
+  transition: 0.3s;
+}
+
+.container .box.inputField label .changeBtn::before {
+  content: ">";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container .box.inputField label .changeBtn.itemsToPrice::before {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.container .box.inputField label .changeBtn.priceToItems::before {
+  transform: translate(-50%, -50%) rotate(181deg);
+}
+
+.container .box.inputField label .changeBtn:hover {
+  background-color: var(--c-dark-blue);
+}
+/* ^Input field^ */
+/* Result */
 .container .box.result {
   border-left: 8px solid var(--c-dark-green);
   padding-left: calc(20px - 8px);
   font-size: 25px;
   margin-top: 10px;
   color: var(--c-dark-green);
+  transition: 1s;
 }
 
+.container .box.result.itemsToPrice {
+  border-color: var(--c-dark-green);
+}
+
+.container .box.result.priceToItems {
+  border-color: var(--c-dark-gray);
+}
+
+.container .box.result.priceToItems .resultField {
+  color: var(--c-dark-gray);
+}
+
+.container .box.result .resultField {
+  position: relative;
+}
+
+.container .box.result .resultField::before {
+  content: 'Result';
+  font-size: 13px;
+  color: var(--c-dark-gray);
+  position: absolute;
+  top: calc(-100% + 10px);
+  left: -8px;
+}
+
+.container .box.result .resultField::after {
+  content: attr(before-content);
+  font-size: 13px;
+  color: var(--c-dark-gray);
+  position: absolute;
+  width: max-content;
+  left: calc(100% + 3px);
+  bottom: 5px;
+}
+
+/* ^Result^ */
+/* Car tools */
 .container .box.carTool {
   position: relative;
 }
@@ -187,7 +277,8 @@ body {
   font-size: 20px;
   font-weight: bold;
 }
-
+/* ^Car tools^ */
+/* Footer */
 .container .box.footer {
   border-bottom: 8px solid var(--c-gray);
   padding-bottom: calc(20px - 8px);
@@ -214,3 +305,4 @@ body {
 .container .box.footer ul li:not(:last-of-type) {
   padding-bottom: 5px;
 }
+/* ^Footer^ */

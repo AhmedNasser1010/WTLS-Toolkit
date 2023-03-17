@@ -18,54 +18,20 @@ class Weapon {
 	}
 	// methods
 	calc(ammunitionNum) {
-		// return +(this.price / this.count * ammunitionNum).toFixed(1);
+		let changeBtn = document.querySelector(".changeBtn");
 		let calcResult = +(this.price / this.count * ammunitionNum).toFixed(0);
-		let toString = calcResult.toString();
-		let toArray = toString.split("");
-		if (toArray.length === 1) {
-			// 1 one one failed
-			return `$${toArray.join("")}`;
-		} else if (toArray.length === 2) {
-			// 10 ten two failed
-			return `$${toArray.join("")}`;
-		} else if (toArray.length === 3) {
-			// 100 one hundred three failed
-			return `$${toArray.join("")}`;
-		} else if (toArray.length === 4) {
-			// 1000 one thousand four failed
-			toArray.splice(1, 0, ",");
-			return `$${toArray.join("")}K`;
-		} else if (toArray.length === 5) {
-			// 10000 ten thousand five failed
-			toArray.splice(2, 0, ",");
-			return `$${toArray.join("")}K`;
-		} else if (toArray.length === 6) {
-			// 100000 one hundred thousand six failed
-			toArray.splice(3, 0, ",");
-			return `$${toArray.join("")}K`;
-		} else if (toArray.length === 7) {
-			// 1000000 one million seven failed
-			toArray.splice(1, 0, ",");
-			toArray.splice(5, 0, ",");
-			return `$${toArray.join("")}M`;
-		} else if (toArray.length === 8) {
-			// 10000000 ten million eight failed
-			toArray.splice(2, 0, ",");
-			toArray.splice(6, 0, ",");
-			return `$${toArray.join("")}M`;
-		} else if (toArray.length === 9) {
-			// 100000000 one hundred million nine failed
-			toArray.splice(3, 0, ",");
-			toArray.splice(7, 0, ",");
-			return `$${toArray.join("")}M`;
-		} else if (toArray.length === 10) {
-			// 1000000000 one billion ten failed
-			toArray.splice(1, 0, ",");
-			toArray.splice(5, 0, ",");
-			toArray.splice(9, 0, ",");
-			return `$${toArray.join("")}B`;
+		
+		let per = this.price / this.count;
+		let result = +(ammunitionNum / per).toFixed(0);
+
+		if (changeBtn.classList.contains("itemsToPrice")) {
+		 	return numSymbol(calcResult, "$ ", "", "", "", " K", " K", " K", " M", " M", " M", " B");
+		} else if (changeBtn.classList.contains("priceToItems")) {
+			if (result < 1) {
+				return `Less price equal ${per.toFixed(0)}`;
+			}
+			return numSymbol(result, "Ammo ", "", "", "", " K", " K", " K", " M", " M", " M", " B");
 		}
-		return toArray;
 	}
 	updatePrice(newPrice) {
 		if (newPrice === 0) {
@@ -76,6 +42,7 @@ class Weapon {
 	appendContentInPage() {
 		let span = document.createElement("span");
 		span.classList.add("item");
+		span.classList.add("onClick");
 		span.textContent = this.itemName;
 		span.setAttribute("itemid", this.id);
 		if (this.category == "gun") {
@@ -302,27 +269,133 @@ let ammoBoxes = new Other(25, "other", "Ammo Boxes", 10000, 10);
 let counterfeitChips = new Other(26, "other", "Counterfeit Chips", 10000, 5000);
 // ^Other
 
-// load elements
-window.onload = function() {
-	for (let i = 0; i < Weapon.thisItems.length; i++) {
-		Weapon.thisItems[i].appendContentInPage();
+function numSymbol(num = 0, process = "", lengthOne = "", lengthTwo = "", lengthThree = "", lengthFour = "", lengthFive = "", lengthSix = "", lengthSeven = "", lengthEight = "", lengthNine = "", lengthTen = "") {
+	let toString = num.toString();
+	let toArray = toString.split("");
+	switch (toArray.length) {
+		case 1:
+			// 1 one one Field
+			return `${process}${toArray.join("")}${lengthOne}`;
+			break;
+		case 2:
+			// 10 ten two Field
+			return `${process}${toArray.join("")}${lengthTwo}`;
+			break;
+		case 3:
+			// 100 one hundred three Field
+			return `${process}${toArray.join("")}${lengthThree}`;
+			break;
+		case 4:
+			// 1000 one thousand four Field
+			toArray.splice(1, 0, ",");
+			return `${process}${toArray.join("")}${lengthFour}`;
+			break;
+		case 5:
+			// 10000 ten thousand five Field
+			toArray.splice(2, 0, ",");
+			return `${process}${toArray.join("")}${lengthFive}`;
+			break;
+		case 6:
+			// 100000 one hundred thousand six Field
+			toArray.splice(3, 0, ",");
+			return `${process}${toArray.join("")}${lengthSix}`;
+			break;
+		case 7:
+			// 1000000 one million seven Field
+			toArray.splice(1, 0, ",");
+			toArray.splice(5, 0, ",");
+			return `${process}${toArray.join("")}${lengthSeven}`;
+			break;
+		case 8:
+			// 10000000 ten million eight Field
+			toArray.splice(2, 0, ",");
+			toArray.splice(6, 0, ",");
+			return `${process}${toArray.join("")}${lengthEight}`;
+			break;
+		case 9:
+			// 100000000 one hundred million nine Field
+			toArray.splice(3, 0, ",");
+			toArray.splice(7, 0, ",");
+			return `${process}${toArray.join("")}${lengthNine}`;
+			break;
+		case 10:
+			// 1000000000 one billion ten Field
+			toArray.splice(1, 0, ",");
+			toArray.splice(5, 0, ",");
+			toArray.splice(9, 0, ",");
+			return `${process}${toArray.join("")}${lengthTen}`;
+			break;
+		default:
+			return `The number is too high!`;
+			break;
 	}
+}
 
-	let items = document.querySelectorAll(".item");
-	let inputFailed = document.querySelector("#inputFailed");
-	items.forEach(item => {
-		item.addEventListener("click", e => {
-			for (let i = 0; i < items.length; i++) {
-				items[i].classList.remove("selected");
-			}
-			e.target.classList.add("selected");
+// load elements
+for (let i = 0; i < Weapon.thisItems.length; i++) {
+	Weapon.thisItems[i].appendContentInPage();
+}
 
-			let selectedItem = document.querySelector(".item.selected").getAttribute("itemid");
-			let resultFailed = document.querySelector(".resultFailed");
-			inputFailed.addEventListener("input", e => {
-				resultFailed.innerHTML = Weapon.thisItems[selectedItem].calc(e.target.value);
-			});
-			resultFailed.innerHTML = Weapon.thisItems[selectedItem].calc(inputFailed.value);
+let items = document.querySelectorAll(".item");
+let resultField = document.querySelector(".resultField");
+	
+let inputField = document.querySelector("#inputField");
+	
+items.forEach(item => {
+	item.addEventListener("click", e => {
+		for (let i = 0; i < items.length; i++) {
+			items[i].classList.remove("selected");
+		}
+		e.target.classList.add("selected");
+
+		let selectedItem = document.querySelector(".item.selected").getAttribute("itemid");
+		inputField.addEventListener("input", e => {
+			resultField.innerHTML = Weapon.thisItems[selectedItem].calc(e.target.value);
 		});
+		resultField.removeAttribute("before-content");
+		resultField.setAttribute("before-content", `per ${numSymbol(Weapon.thisItems[selectedItem].per().toFixed(0), "$", "", "", "", "K", "K", "K", "M", "M", "M", "B" )}`);
+		resultField.innerHTML = Weapon.thisItems[selectedItem].calc(inputField.value);
 	});
-};
+});
+
+let changeBtn = document.querySelector(".changeBtn");
+changeBtn.classList.add("itemsToPrice");
+changeBtn.addEventListener("click", e => {
+	if (e.target.classList.contains("itemsToPrice")) {
+		e.target.classList.remove("itemsToPrice");
+		e.target.classList.add("priceToItems");
+	} else if (e.target.classList.contains("priceToItems")) {
+		e.target.classList.remove("priceToItems");
+		e.target.classList.add("itemsToPrice");
+	}
+	// here
+	let x = document.querySelector(".inputField")
+	if (x.classList.contains("itemsToPrice")) {
+		x.classList.remove("itemsToPrice");
+		x.classList.add("priceToItems");
+	} else if (x.classList.contains("priceToItems")) {
+		x.classList.remove("priceToItems");
+		x.classList.add("itemsToPrice");
+	}
+	let y = document.querySelector(".result");
+	if (y.classList.contains("itemsToPrice")) {
+		y.classList.remove("itemsToPrice");
+		y.classList.add("priceToItems");
+	} else if (y.classList.contains("priceToItems")) {
+		y.classList.remove("priceToItems");
+		y.classList.add("itemsToPrice");
+	}
+	let selectedItem = document.querySelector(".item.selected").getAttribute("itemid");
+		inputField.addEventListener("input", e => {
+			resultField.innerHTML = Weapon.thisItems[selectedItem].calc(e.target.value);
+		});
+	resultField.innerHTML = Weapon.thisItems[selectedItem].calc(inputField.value);
+});
+
+let defaultSelectedItem = 9;
+items[defaultSelectedItem].classList.add("selected");
+let selectedItem = document.querySelector(".item.selected").getAttribute("itemid");
+inputField.addEventListener("input", e => {
+	resultField.innerHTML = Weapon.thisItems[selectedItem].calc(e.target.value);
+});
+resultField.innerHTML = Weapon.thisItems[selectedItem].calc(inputField.value);
