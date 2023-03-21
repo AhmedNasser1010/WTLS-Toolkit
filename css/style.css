@@ -145,7 +145,7 @@ body {
   padding-left: calc(20px - 8px);
   position: relative;
   color: var(--c-dark-gray);
-  transition: 1s;
+  transition: 0.3s;
 }
 
 .container .box.inputField.itemsToPrice {
@@ -213,7 +213,7 @@ body {
   font-size: 25px;
   margin-top: 10px;
   color: var(--c-dark-green);
-  transition: 1s;
+  transition: 0.3s;
 }
 
 .container .box.result.itemsToPrice {
