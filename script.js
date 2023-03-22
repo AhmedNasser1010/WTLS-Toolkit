@@ -1,6 +1,7 @@
 let gunsContainer = document.querySelector(".categ.guns > div");
 let drugsContainer = document.querySelector(".categ.drugs > div");
 let othersContainer = document.querySelector(".categ.other > div");
+let fearuredGuns = document.querySelector(".categ.fearuredGuns > div");
 
 class Weapon {
 	static thisItems = [];
@@ -51,6 +52,8 @@ class Weapon {
 			drugsContainer.appendChild(span);
 		} else if (this.category == "other") {
 			othersContainer.appendChild(span);
+		} else if (this.category == "fearuredGuns") {
+			fearuredGuns.appendChild(span);
 		}
 	}
 }
@@ -241,32 +244,35 @@ let smg = new Weapon(4, "gun", "SMG", 2016, 90);
 let shotgun = new Weapon(5, "gun", "Shotgun", 605, 15);
 let combatShotgun = new Weapon(6, "gun", "Combat Shotgun", 1008, 10);
 let swanoffshotgun = new Weapon(7, "gun", "Swanoffshotgun", 806, 12);
-let rpg = new Weapon(8, "gun", "RPG", 168000, 10);
-let mg = new Weapon(9, "gun", "Minigun", 650000, 20);
-let flameThrower = new Weapon(10, "gun", "Flamethrower", 26250, 20);
-let molotov = new Weapon(11, "gun", "Molotov", 10500, 10);
-let nineMm = new Weapon(12, "gun", "9mm", 230, 30);
-let silencedNineMm = new Weapon(13, "gun", "Silenced 9mm", 691, 30);
-let desertEagle = new Weapon(14, "gun", "Desert Eagle", 1382, 15);
+let flameThrower = new Weapon(8, "gun", "Flamethrower", 26250, 20);
+let molotov = new Weapon(9, "gun", "Molotov", 10500, 10);
+let nineMm = new Weapon(10, "gun", "9mm", 230, 30);
+let silencedNineMm = new Weapon(11, "gun", "Silenced 9mm", 691, 30);
+let desertEagle = new Weapon(12, "gun", "Desert Eagle", 1382, 15);
+let rifle = new Weapon(13, "gun", "Rifle", 1000, 20);
 // Thrown
-let grenades = new Weapon(15, "gun", "Grenades", 4456, 5);
-let remoteExplosives = new Weapon(16, "gun", "Remote Explosives", 2304, 1);
-let proximityMines = new Weapon(17, "gun", "Proximity Mines", 17280, 1);
-let tearGasGrenades = new Weapon(18, "gun", "Tear Gas Grenades", 3456, 1);
-let flashBangs = new Weapon(19, "gun", "Flash Bangs", 1728, 1);
-let explosives = new Weapon(20, "gun", "Explosives", 5760, 1);
-let boobyTraps = new Weapon(21, "gun", "Booby Traps", 9216, 1);
+let grenades = new Weapon(14, "gun", "Grenades", 4456, 5);
+let remoteExplosives = new Weapon(15, "gun", "Remote Explosives", 2304, 1);
+let proximityMines = new Weapon(16, "gun", "Proximity Mines", 17280, 1);
+let tearGasGrenades = new Weapon(17, "gun", "Tear Gas Grenades", 3456, 1);
+let flashBangs = new Weapon(18, "gun", "Flash Bangs", 1728, 1);
+let explosives = new Weapon(19, "gun", "Explosives", 5760, 1);
+let boobyTraps = new Weapon(20, "gun", "Booby Traps", 9216, 1);
+// Featured gun
+let mg = new Weapon(21, "fearuredGuns", "Minigun", 650000, 20);
+let rpg = new Weapon(22, "fearuredGuns", "RPG", 168000, 10);
+let sniper = new Weapon(23, "fearuredGuns", "Sniper", 5000, 10);
 // ^Weapon^
 
 // Drugs
-let weed = new Drug(22, "drug", "Weed", 5000, 10);
-let cocaine = new Drug(23, "drug", "Cocaine", 4000, 10);
-let meth = new Drug(24, "drug", "Meth", 10000, 10);
+let weed = new Drug(24, "drug", "Weed", 5000, 10);
+let cocaine = new Drug(25, "drug", "Cocaine", 4000, 10);
+let meth = new Drug(26, "drug", "Meth", 10000, 10);
 // ^Drugs^
 
 // Other
-let ammoBoxes = new Other(25, "other", "Ammo Boxes", 10000, 10);
-let counterfeitChips = new Other(26, "other", "Counterfeit Chips", 10000, 5000);
+let ammoBoxes = new Other(27, "other", "Ammo Boxes", 10000, 10);
+let counterfeitChips = new Other(28, "other", "Counterfeit Chips", 10000, 5000);
 // ^Other
 
 function numSymbol(num = 0, process = "", lengthOne = "", lengthTwo = "", lengthThree = "", lengthFour = "", lengthFive = "", lengthSix = "", lengthSeven = "", lengthEight = "", lengthNine = "", lengthTen = "") {
