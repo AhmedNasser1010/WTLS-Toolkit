@@ -306,3 +306,19 @@ body {
   padding-bottom: 5px;
 }
 /* ^Footer^ */
+
+/* Ramadan */
+.container .box.ramadan {
+  border-left: 8px solid var(--c-green);
+  padding-left: calc(20px - 8px);
+  text-align: end;
+  position: relative;
+}
+
+.container .box.ramadan > img {
+  max-width: 160px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* ^Ramadan^ */
