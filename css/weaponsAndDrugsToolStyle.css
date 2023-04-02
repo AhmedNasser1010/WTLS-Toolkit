@@ -1,0 +1,209 @@
+:root {
+  /* Colors */
+  --c1: #23272a;
+  --c2: #2c2f33;
+  --c3: #99aaba;
+  --c4: #7289da;
+  --c5: #f1f5f9;
+  --c-blue: #0075ff;
+  --c-dark-blue: #0d69d5;
+  --c-orang: #f59e0b;
+  --c-dark-orang: #e09009;
+  --c-green: #22c55e;
+  --c-dark-green: #1db154;
+  --c-red: #f44336;
+  --c-dark-red: #cc362b;
+  --c-gray: #888;
+  --c-dark-gray: #565656;
+  --c-light-white: #eee;
+  /* ^Colors^ */
+  --f-openSans: 'Open Sans', sans-serif;
+  --fa: "Font Awesome 6 Free";
+  --f-cairo: 'Cairo', sans-serif;
+}
+/*===================*/
+
+/* Items */
+.container .box.items {
+  border-left: 8px solid var(--c-blue);
+  padding-left: calc(20px - 8px);
+}
+
+.container .box.items .categ .categoryTitle {
+  background-color: var(--c5);
+  padding: 10px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+  cursor: default;
+  color: var(--c-dark-gray);
+}
+
+.container .box.items .categ:not(:first-of-type) .categoryTitle {
+  margin-top: 10px;
+}
+
+.container .box.items .categ .categoryTitle i {
+  margin-right: 5px;
+}
+
+.container .box.items .categ div {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--c5);
+}
+
+.container .box.items .categ div .item {
+  color: white;
+  background-color: var(--c-blue);
+  padding: 2px 5px;
+  font-size: 17px;
+  display: inline-block;
+  flex-grow: 1;
+  cursor: pointer;
+  margin: 1px;
+  text-align: center;
+  transition: 0.3s;
+  font-weight: unset;
+}
+
+.container .box.items .categ div .item.selected {
+  background-color: var(--c-red);
+}
+
+.container .box.items .categ div .item:hover {
+  background-color: var(--c-dark-blue);
+}
+
+.container .box.items .categ div .item.selected:hover {
+  background-color: var(--c-dark-red);
+}
+/* ^Items^ */
+/* Input field*/
+.container .box.inputField {
+  border-left: 8px solid var(--c-dark-gray);
+  padding-left: calc(20px - 8px);
+  position: relative;
+  color: var(--c-dark-gray);
+  transition: 0.3s;
+}
+
+.container .box.inputField.itemsToPrice {
+  border-color: var(--c-dark-gray);
+}
+
+.container .box.inputField.priceToItems {
+  border-color: var(--c-dark-green);
+}
+
+.container .box.inputField.priceToItems input {
+  color: var(--c-dark-green);
+}
+
+.container .box.inputField label {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  font-size: 13px;
+}
+
+.container .box.inputField input {
+  width: 100%;
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.container .box.inputField label .changeBtn {
+  position: relative;
+  width: 15px;
+  height: 16px;
+  background-color: var(--c-blue);
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 15px;
+  transform: translateY(-3px);
+  transition: 0.3s;
+}
+
+.container .box.inputField label .changeBtn::before {
+  content: ">";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container .box.inputField label .changeBtn.itemsToPrice::before {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.container .box.inputField label .changeBtn.priceToItems::before {
+  transform: translate(-50%, -50%) rotate(181deg);
+}
+
+.container .box.inputField label .changeBtn:hover {
+  background-color: var(--c-dark-blue);
+}
+/* ^Input field^ */
+/* Result */
+.container .box.result {
+  border-left: 8px solid var(--c-dark-green);
+  padding-left: calc(20px - 8px);
+  font-size: 25px;
+  margin-top: 10px;
+  color: var(--c-dark-green);
+  transition: 0.3s;
+}
+
+.container .box.result.itemsToPrice {
+  border-color: var(--c-dark-green);
+}
+
+.container .box.result.priceToItems {
+  border-color: var(--c-dark-gray);
+}
+
+.container .box.result.priceToItems .resultField {
+  color: var(--c-dark-gray);
+}
+
+.container .box.result .resultField {
+  position: relative;
+}
+
+.container .box.result .resultField::before {
+  content: 'Result';
+  font-size: 13px;
+  color: var(--c-dark-gray);
+  position: absolute;
+  top: calc(-100% + 10px);
+  left: -8px;
+}
+
+.container .box.result .resultField::after {
+  content: attr(before-content);
+  font-size: 13px;
+  color: var(--c-dark-gray);
+  position: absolute;
+  width: max-content;
+  left: calc(100% + 3px);
+  bottom: 5px;
+}
+
+.container .box.items .categ.featuredGuns {
+  position: relative;
+}
+
+.container .box.items .categ.featuredGuns .categoryTitle span {
+  margin-left: 35px;
+}
+
+.container .box.items .categ.featuredGuns .categoryTitle img {
+  filter: contrast(0.5);
+  width: 35px;
+  position: absolute;
+  top: 1px;
+  left: 5px;
+}
+/* ^Result^ */

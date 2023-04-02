@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- link files -->
+		<!-- style -->
+	<link rel="stylesheet" href="css/all.min.css">
+	<link rel="stylesheet" href="css/defaultStyle.css">
+	<link rel="stylesheet" href="css/weaponsAndDrugsToolStyle.css">
+		<!-- script -->
+	<script type="text/javascript" src="script/script.js" defer></script>
+		<!-- fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<!-- ^link files^ -->
+	<title>WTLS Toolkit</title>
+</head>
+<body>
+	<div class="container">
+		<div class="box title">
+			<h1>Weapons Drugs Items Tool</h1>
+		</div>
+		<div class="box links">
+			<a href="home.html" class="link"><i class="fa-solid fa-house"></i></a>
+			<a href="weaponsAndDrugsTool.html" class="link selected">
+				<div class="weaponsAndDrugsToolIcons">
+					<i class="fa-solid fa-gun"></i>
+					<i class="fa-solid fa-cannabis"></i>
+					<i class="fa-solid fa-cube"></i>
+				</div>
+			</a>
+			<a href="carTools.html" class="link"><i class="fa-solid fa-car-side"></i></a>
+			<a href="workingshop.html" class="link"><i class="fa-solid fa-car-tunnel"></i></a>
+			<a href="drugBase.html" class="link"><i class="fa-solid fa-warehouse"></i></a>
+			<a href="settings.html" class="link"><i class="fa-solid fa-gear"></i></a>
+		</div>
+		<div class="box items">
+			<div class="categ guns">
+				<span class="categoryTitle"><i class="fa-solid fa-gun"></i>Guns</span>
+				<div class="itemsContainer"></div>
+			</div>
+			<div class="categ featuredGuns">
+				<div class="categoryTitle">
+					<img src="assets/image/mg.png" alt="mg">
+					<span>Advanced guns</span>
+				</div>
+				<div class="itemsContainer"></div>
+			</div>
+			<div class="categ drugs">
+				<span class="categoryTitle"><i class="fa-solid fa-cannabis"></i>Drugs</span>
+				<div class="itemsContainer"></div>
+			</div>
+			<div class="categ other">
+				<span class="categoryTitle"><i class="fa-solid fa-cube"></i>Other</span>
+				<div class="itemsContainer"></div>
+			</div>
+		</div>
+		<div class="box inputField itemsToPrice">
+			<label for="changeBtn"> Ammo or items <button class="changeBtn onClick" id="changeBtn"></button> price</label>
+			<input type="text" id="inputField">
+		</div>
+		<div class="box result itemsToPrice">
+			<span class="resultField" before-content="">$ 0</span>
+		</div>
+	</div>
+</body>
+</html>

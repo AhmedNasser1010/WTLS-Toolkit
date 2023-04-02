@@ -1,0 +1,87 @@
+/* remember delete this (:root) after done this page */
+:root {
+  /* Colors */
+  --c1: #23272a;
+  --c2: #2c2f33;
+  --c3: #99aaba;
+  --c4: #7289da;
+  --c5: #f1f5f9;
+  --c-blue: #0075ff;
+  --c-dark-blue: #0d69d5;
+  --c-orang: #f59e0b;
+  --c-dark-orang: #e09009;
+  --c-green: #22c55e;
+  --c-dark-green: #1db154;
+  --c-red: #f44336;
+  --c-dark-red: #cc362b;
+  --c-gray: #888;
+  --c-dark-gray: #565656;
+  --c-light-white: #eee;
+  /* ^Colors^ */
+  --f-openSans: 'Open Sans', sans-serif;
+  --fa: "Font Awesome 6 Free";
+  --f-cairo: 'Cairo', sans-serif;
+}
+/* ==================== */
+
+/* Ramadan */
+.container .box.ramadan {
+  border-left: 8px solid var(--c-green);
+  padding-left: calc(20px - 8px);
+  text-align: end;
+  position: relative;
+}
+
+.container .box.ramadan > img {
+  max-width: 160px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* ^Ramadan^ */
+/* page links */
+.container .box.pageLinks {
+  width: 430px;
+  background-color: unset;
+  overflow: unset;
+  border-radius: unset;
+  padding: 0px;
+}
+
+.container .box.pageLinks .pages {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.container .box.pageLinks .pages .page {
+  background-color: var(--c-blue);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--c-dark-blue) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  transition: 0.3s;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.container .box.pageLinks .pages .page i {
+  font-size: 40px;
+  color: var(--c5);
+}
+
+.container .box.pageLinks .pages .page.weaponsDrugsItems div {
+  display: flex;
+}
+
+.container .box.pageLinks .pages .page.weaponsDrugsItems div i {
+  font-size: 20px;
+  margin-right: 3px;
+}
+
+.container .box.pageLinks .pages .page:hover {
+  transform: translateY(-3px);
+}
+/* ^page links^ */

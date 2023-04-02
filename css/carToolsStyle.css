@@ -1,0 +1,26 @@
+:root {
+  /* Colors */
+  --c1: #23272a;
+  --c2: #2c2f33;
+  --c3: #99aaba;
+  --c4: #7289da;
+  --c5: #f1f5f9;
+  --c-blue: #0075ff;
+  --c-dark-blue: #0d69d5;
+  --c-orang: #f59e0b;
+  --c-dark-orang: #e09009;
+  --c-green: #22c55e;
+  --c-dark-green: #1db154;
+  --c-red: #f44336;
+  --c-dark-red: #cc362b;
+  --c-gray: #888;
+  --c-dark-gray: #565656;
+  --c-light-white: #eee;
+  /* ^Colors^ */
+  --f-openSans: 'Open Sans', sans-serif;
+  --fa: "Font Awesome 6 Free";
+  --f-cairo: 'Cairo', sans-serif;
+}
+
+/*==============*/
+
