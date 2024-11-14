@@ -1,0 +1,11 @@
+{
+  "name": "wtls-toolkit",
+  "version": "1.0.0",
+  "description": "This script help me to calc weapons price in gta sa Samp online",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ahmed nasser",
+  "license": "ISC"
+}
